@@ -1,0 +1,1569 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Webplus - مد و پوشاک زنانه</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #000000;
+      color: #ffffff;
+      overflow-x: hidden;
+      height: 100%;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .brand-logo {
+      font-size: 42px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      background: linear-gradient(135deg, #000000 0%, #8B0000 50%, #000000 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: 0 0 30px rgba(139, 0, 0, 0.5);
+      font-family: 'Impact', 'Arial Black', sans-serif;
+    }
+
+    /* Glass Effect Container */
+    .glass-container {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(139, 0, 0, 0.1) 100%);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      padding: 30px;
+      margin: 20px;
+      box-shadow: 0 15px 50px rgba(139, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.9) 0%, rgba(139, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0.9) 100%);
+      backdrop-filter: blur(25px);
+      padding: 80px 20px;
+      text-align: center;
+      border-bottom: 3px solid rgba(255, 255, 255, 0.2);
+      min-height: 400px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 40px rgba(139, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    }
+
+    .tagline {
+      font-size: 56px;
+      color: #ffffff;
+      margin-top: 10px;
+      font-weight: 300;
+      letter-spacing: 4px;
+    }
+
+    /* Section Headers */
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 30px 20px 15px;
+      padding: 20px 30px;
+      background: #000000;
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 8px 32px rgba(139, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .section-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #ffffff;
+      text-shadow: 0 2px 10px rgba(139, 0, 0, 0.5);
+    }
+
+    .more-btn {
+      background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 12px 30px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 25px rgba(220, 20, 60, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+    }
+
+    .more-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 35px rgba(220, 20, 60, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      background: linear-gradient(135deg, #FF1744 0%, #DC143C 100%);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Slider Container */
+    .slider-container {
+      position: relative;
+      margin: 0 20px 40px;
+      overflow: hidden;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      gap: 20px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 20px 0;
+      cursor: grab;
+      user-select: none;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .slider-wrapper::-webkit-scrollbar {
+      display: none;
+    }
+
+    .slider-wrapper.dragging {
+      cursor: grabbing;
+      scroll-behavior: auto;
+    }
+
+    /* Product Card */
+    .product-card {
+      min-width: 280px;
+      height: 380px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(139, 0, 0, 0.08) 100%);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      padding: 20px;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-card:hover {
+      transform: translateY(-15px) scale(1.02);
+      border-color: rgba(220, 20, 60, 0.6);
+      box-shadow: 0 20px 60px rgba(220, 20, 60, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(220, 20, 60, 0.15) 100%);
+    }
+
+    .product-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(220, 20, 60, 0.1) 100%);
+      border-radius: 20px;
+      font-size: 80px;
+      color: rgba(255, 255, 255, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Navigation Arrows */
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: linear-gradient(135deg, rgba(220, 20, 60, 0.9) 0%, rgba(139, 0, 0, 0.9) 100%);
+      backdrop-filter: blur(15px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      width: 55px;
+      height: 55px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 10;
+      transition: all 0.4s ease;
+      font-size: 24px;
+      font-weight: bold;
+      box-shadow: 0 8px 25px rgba(220, 20, 60, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-arrow:hover {
+      background: linear-gradient(135deg, #FF1744 0%, #DC143C 100%);
+      transform: translateY(-50%) scale(1.15);
+      box-shadow: 0 12px 35px rgba(220, 20, 60, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .nav-arrow.left {
+      right: 10px;
+    }
+
+    .nav-arrow.right {
+      left: 10px;
+    }
+
+    /* Footer Sections */
+    .footer-section {
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(139, 0, 0, 0.12) 100%);
+      backdrop-filter: blur(25px);
+      margin: 40px 20px;
+      padding: 50px;
+      border-radius: 25px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 15px 50px rgba(139, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-title {
+      font-size: 32px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      font-weight: 700;
+      text-shadow: 0 2px 10px rgba(139, 0, 0, 0.5);
+    }
+
+    .footer-text {
+      font-size: 18px;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+
+
+    /* Detail Page Styles */
+    .detail-page {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000000;
+      z-index: 2000;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    .detail-page.active {
+      display: block;
+    }
+
+    .back-btn {
+      background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 14px 35px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 30px;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 25px rgba(220, 20, 60, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .back-btn:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 35px rgba(220, 20, 60, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      background: linear-gradient(135deg, #FF1744 0%, #DC143C 100%);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .detail-header {
+      font-size: 36px;
+      color: #ffffff;
+      margin-bottom: 30px;
+      text-align: center;
+      font-weight: 700;
+      text-shadow: 0 2px 10px rgba(139, 0, 0, 0.5);
+    }
+
+    .product-card-detail {
+      position: relative;
+      min-width: 280px;
+      height: 380px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(139, 0, 0, 0.08) 100%);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      padding: 20px;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-card-detail:hover {
+      transform: translateY(-15px) scale(1.02);
+      border-color: rgba(220, 20, 60, 0.6);
+      box-shadow: 0 20px 60px rgba(220, 20, 60, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(220, 20, 60, 0.15) 100%);
+    }
+
+    .add-to-cart-btn {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      padding: 12px 30px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: 600;
+      transition: all 0.4s ease;
+      box-shadow: 0 8px 25px rgba(220, 20, 60, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .product-card-detail:hover .add-to-cart-btn {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .add-to-cart-btn:hover {
+      transform: translateX(-50%) translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 35px rgba(220, 20, 60, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+      background: linear-gradient(135deg, #FF1744 0%, #DC143C 100%);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .cart-icon {
+      font-size: 20px;
+    }
+
+    .cart-notification {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      background: linear-gradient(135deg, rgba(220, 20, 60, 0.95) 0%, rgba(139, 0, 0, 0.95) 100%);
+      backdrop-filter: blur(20px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      border-radius: 25px;
+      padding: 40px 60px;
+      z-index: 3000;
+      box-shadow: 0 20px 60px rgba(220, 20, 60, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+      transition: all 0.4s ease;
+      text-align: center;
+    }
+
+    .cart-notification.show {
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .cart-notification-text {
+      font-size: 24px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 15px;
+    }
+
+    .cart-notification-icon {
+      font-size: 60px;
+      margin-bottom: 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .brand-logo {
+        font-size: 32px;
+      }
+
+      .section-title {
+        font-size: 22px;
+      }
+
+      .product-card {
+        min-width: 240px;
+        height: 320px;
+      }
+
+      .footer-section {
+        padding: 25px;
+      }
+
+      .detail-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body><!-- Header -->
+  <header style="background: #000000; position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 40px 20px;"><img src="https://s6.uupload.ir/files/inshot_20251112_160236364_lzd7.jpg" alt="Webplus Header" style="width: 100%; max-width: 1200px; height: auto; border-radius: 20px; box-shadow: 0 20px 60px rgba(139, 0, 0, 0.6); margin-bottom: 30px; border: 3px solid rgba(139, 0, 0, 0.5);" onerror="this.style.display='none';">
+   <div class="tagline" id="tagline" style="position: relative; z-index: 1;">
+    مد و پوشاک زنانه
+   </div>
+  </header><!-- Discount Section -->
+  <div class="section-header">
+   <h2 class="section-title" id="discountTitle">تخفیف‌های ویژه</h2><button class="more-btn" onclick="showMore('discount')">بیشتر ←</button>
+  </div>
+  <div class="slider-container">
+   <div class="nav-arrow right" onclick="scrollSlider('discount', 'right')">
+    →
+   </div>
+   <div class="nav-arrow left" onclick="scrollSlider('discount', 'left')">
+    ←
+   </div>
+   <div class="slider-wrapper" id="discount-slider" data-slider="discount">
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۱۹۱۸_9t0r.jpg" alt="محصول 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۲۱۳۴_gt7.jpg" alt="محصول 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۲۰۲۶_fbp0.jpg" alt="محصول 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۲۰۴۶_8enr.jpg" alt="محصول 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۲۱۱۵_tvpq.jpg" alt="محصول 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۲۱۵۴_wv04.jpg" alt="محصول 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+   </div>
+  </div><!-- New Arrivals Section -->
+  <div class="section-header">
+   <h2 class="section-title" id="newTitle">جدیدترین‌ها</h2><button class="more-btn" onclick="showMore('new')">بیشتر ←</button>
+  </div>
+  <div class="slider-container">
+   <div class="nav-arrow right" onclick="scrollSlider('new', 'right')">
+    →
+   </div>
+   <div class="nav-arrow left" onclick="scrollSlider('new', 'left')">
+    ←
+   </div>
+   <div class="slider-wrapper" id="new-slider" data-slider="new">
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۱۹۳۵_z801.jpg" alt="محصول 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۲۰۱۸_tzyk.jpg" alt="محصول 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۲۰۵۲_u90h.jpg" alt="محصول 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۲۱۲۰_v3vr.jpg" alt="محصول 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۱۸۵۴_nh1s.jpg" alt="محصول 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۱۹۱۵_1v9i.jpg" alt="محصول 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+   </div>
+  </div><!-- Winter Collection Section -->
+  <div class="section-header">
+   <h2 class="section-title" id="winterTitle">لباس زمستانی</h2><button class="more-btn" onclick="showMore('winter')">بیشتر ←</button>
+  </div>
+  <div class="slider-container">
+   <div class="nav-arrow right" onclick="scrollSlider('winter', 'right')">
+    →
+   </div>
+   <div class="nav-arrow left" onclick="scrollSlider('winter', 'left')">
+    ←
+   </div>
+   <div class="slider-wrapper" id="winter-slider" data-slider="winter">
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۲۳۱۰_hcpy.jpg" alt="محصول 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۲۴۰۸_jw8.jpg" alt="محصول 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۲۴۳۴_tghy.jpg" alt="محصول 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۲۴۵۱_al5e.jpg" alt="محصول 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۵۸۳۸_tdv.jpg" alt="محصول 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۲۲۴۱_h5ex.jpg" alt="محصول 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+   </div>
+  </div><!-- Jeans Section -->
+  <div class="section-header">
+   <h2 class="section-title" id="jeansTitle">شلوار جین</h2><button class="more-btn" onclick="showMore('jeans')">بیشتر ←</button>
+  </div>
+  <div class="slider-container">
+   <div class="nav-arrow right" onclick="scrollSlider('jeans', 'right')">
+    →
+   </div>
+   <div class="nav-arrow left" onclick="scrollSlider('jeans', 'left')">
+    ←
+   </div>
+   <div class="slider-wrapper" id="jeans-slider" data-slider="jeans">
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۷۰۰۴۷_2bl9.jpg" alt="جین 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۷۰۱۱۳_k7fp.jpg" alt="جین 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۵۹۲۷_afj.jpg" alt="جین 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۵۹۵۲_nzav.jpg" alt="جین 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۷۰۰۱۵_e6an.jpg" alt="جین 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۷۰۱۴۱_yipg.jpg" alt="جین 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+   </div>
+  </div><!-- Cotton Section -->
+  <div class="section-header">
+   <h2 class="section-title" id="cottonTitle">کتونی</h2><button class="more-btn" onclick="showMore('cotton')">بیشتر ←</button>
+  </div>
+  <div class="slider-container">
+   <div class="nav-arrow right" onclick="scrollSlider('cotton', 'right')">
+    →
+   </div>
+   <div class="nav-arrow left" onclick="scrollSlider('cotton', 'left')">
+    ←
+   </div>
+   <div class="slider-wrapper" id="cotton-slider" data-slider="cotton">
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۴۵۴۹_rx59.jpg" alt="کتونی 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۴۶۰۸_qrtq.jpg" alt="کتونی 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۴۶۴۱_ho3f.jpg" alt="کتونی 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۴۷۰۶_92zs.jpg" alt="کتونی 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۴۴۵۹_bhh0.jpg" alt="کتونی 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۴۵۲۱_qiw.jpg" alt="کتونی 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+   </div>
+  </div><!-- Bags & Shoes Section -->
+  <div class="section-header">
+   <h2 class="section-title" id="bagsTitle">کیف و کفش</h2><button class="more-btn" onclick="showMore('bags')">بیشتر ←</button>
+  </div>
+  <div class="slider-container">
+   <div class="nav-arrow right" onclick="scrollSlider('bags', 'right')">
+    →
+   </div>
+   <div class="nav-arrow left" onclick="scrollSlider('bags', 'left')">
+    ←
+   </div>
+   <div class="slider-wrapper" id="bags-slider" data-slider="bags">
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۵۲۶_saur.jpg" alt="کیف و کفش 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۵۵۰_xhb.jpg" alt="کیف و کفش 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۶۱۳_ql4i.jpg" alt="کیف و کفش 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۶۳۳_ltvj.jpg" alt="کیف و کفش 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۴۱۰_0ji9.jpg" alt="کیف و کفش 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۴۲۸_f83y.jpg" alt="کیف و کفش 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+   </div>
+  </div><!-- Accessories Section -->
+  <div class="section-header">
+   <h2 class="section-title" id="accessoriesTitle">اکسسوری</h2><button class="more-btn" onclick="showMore('accessories')">بیشتر ←</button>
+  </div>
+  <div class="slider-container">
+   <div class="nav-arrow right" onclick="scrollSlider('accessories', 'right')">
+    →
+   </div>
+   <div class="nav-arrow left" onclick="scrollSlider('accessories', 'left')">
+    ←
+   </div>
+   <div class="slider-wrapper" id="accessories-slider" data-slider="accessories">
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۶۱۷_v1m.jpg" alt="اکسسوری 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۶۳۶_jvpp.jpg" alt="اکسسوری 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۷۰۷_83n.jpg" alt="اکسسوری 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۷۲۲_b8h7.jpg" alt="اکسسوری 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۵۰۲_t2m.jpg" alt="اکسسوری 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+    <div class="product-card">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۵۱۵_huvu.jpg" alt="اکسسوری 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div>
+    </div>
+   </div>
+  </div><!-- Detail Pages -->
+  <div id="discount-detail" class="detail-page"><button class="back-btn" onclick="goBack()">→ بازگشت</button>
+   <h1 class="detail-header">تخفیف‌های ویژه</h1>
+   <div class="detail-grid">
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۱۹۱۸_9t0r.jpg" alt="محصول 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 1')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۲۱۳۴_gt7.jpg" alt="محصول 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 2')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۲۰۲۶_fbp0.jpg" alt="محصول 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 3')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۲۰۴۶_8enr.jpg" alt="محصول 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 4')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۲۱۱۵_tvpq.jpg" alt="محصول 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 5')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۲۱۵۴_wv04.jpg" alt="محصول 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 6')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۱۸۵۳_4xc2.jpg" alt="محصول 7" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 7')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۱۸۳۶_ulbe.jpg" alt="محصول 8" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 8')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۱_۲۳۱۸۲۱_flxw.jpg" alt="محصول 9" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 9')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۲۴۹۵۱_ls9p.jpg" alt="محصول 10" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 10')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۲۵۰۰۹_w56y.jpg" alt="محصول 11" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 11')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۲۵۱۰۱_9ja.jpg" alt="محصول 12" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 12')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۲۵۰۲۶_sa50.jpg" alt="محصول 13" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 13')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+   </div>
+  </div>
+  <div id="new-detail" class="detail-page"><button class="back-btn" onclick="goBack()">→ بازگشت</button>
+   <h1 class="detail-header">جدیدترین‌ها</h1>
+   <div class="detail-grid">
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۱۹۳۵_z801.jpg" alt="محصول 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 1')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۲۰۱۸_tzyk.jpg" alt="محصول 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 2')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۲۰۵۲_u90h.jpg" alt="محصول 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 3')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۲۱۲۰_v3vr.jpg" alt="محصول 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 4')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۱۸۵۴_nh1s.jpg" alt="محصول 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 5')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۱۹۱۵_1v9i.jpg" alt="محصول 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 6')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۱۵۵۴_bc7h.jpg" alt="محصول 7" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 7')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۱۶۵۴_4n8h.jpg" alt="محصول 8" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 8')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۱۷۲۵_h2a.jpg" alt="محصول 9" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 9')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۱۸۱۲_2h9b.jpg" alt="محصول 10" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 10')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۱۸۵۴_jtr.jpg" alt="محصول 11" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 11')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۲۰۵۲_d7i0.jpg" alt="محصول 12" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 12')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۱۵۳۶_sd65.jpg" alt="محصول 13" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 13')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+   </div>
+  </div>
+  <div id="winter-detail" class="detail-page"><button class="back-btn" onclick="goBack()">→ بازگشت</button>
+   <h1 class="detail-header">لباس زمستانی</h1>
+   <div class="detail-grid">
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۲۳۱۰_hcpy.jpg" alt="محصول 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 1')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۲۴۰۸_jw8.jpg" alt="محصول 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 2')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۲۴۳۴_tghy.jpg" alt="محصول 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 3')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۲۴۵۱_al5e.jpg" alt="محصول 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 4')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۵۸۳۸_tdv.jpg" alt="محصول 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 5')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۲۲۴۱_h5ex.jpg" alt="محصول 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 6')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۵۶۱۵_50j9.jpg" alt="محصول 7" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 7')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۵۶۴۲_9199.jpg" alt="محصول 8" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 8')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۵۷۳۵_ih6d.jpg" alt="محصول 9" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 9')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۵۷۵۸_wffl.jpg" alt="محصول 10" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 10')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۵۴۵۲_dlv.jpg" alt="محصول 11" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 11')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۵۵۱۰_sptd.jpg" alt="محصول 12" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 12')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۵۵۵۷_fz3f.jpg" alt="محصول 13" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 13')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۳۵۵۲۸_eion.jpg" alt="محصول 14" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('محصول 14')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+   </div>
+  </div>
+  <div id="jeans-detail" class="detail-page"><button class="back-btn" onclick="goBack()">→ بازگشت</button>
+   <h1 class="detail-header">شلوار جین</h1>
+   <div class="detail-grid">
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۷۰۰۴۷_2bl9.jpg" alt="جین 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 1')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۷۰۱۱۳_k7fp.jpg" alt="جین 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 2')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۵۹۲۷_afj.jpg" alt="جین 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 3')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۵۹۵۲_nzav.jpg" alt="جین 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 4')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۷۰۰۱۵_e6an.jpg" alt="جین 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 5')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۷۰۱۴۱_yipg.jpg" alt="جین 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 6')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۵۷۳۸_7r06.jpg" alt="جین 7" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 7')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۵۸۰۱_sk1.jpg" alt="جین 8" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 8')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۵۸۲۰_afkx.jpg" alt="جین 9" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 9')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۵۸۵۹_374c.jpg" alt="جین 10" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 10')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۵۵۵۰_41qd.jpg" alt="جین 11" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 11')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۵۶۰۶_av54.jpg" alt="جین 12" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 12')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۵۴۳۲_mi2h.jpg" alt="جین 13" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 13')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۵۴۴۸_i3gm.jpg" alt="جین 14" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 14')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۵۵۰۶_j1n7.jpg" alt="جین 15" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 15')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۰۶۵۵۲۴_scci.jpg" alt="جین 16" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('جین 16')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+   </div>
+  </div>
+  <div id="cotton-detail" class="detail-page"><button class="back-btn" onclick="goBack()">→ بازگشت</button>
+   <h1 class="detail-header">کتونی</h1>
+   <div class="detail-grid">
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۴۵۴۹_rx59.jpg" alt="کتونی 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 1')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۴۶۰۸_qrtq.jpg" alt="کتونی 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 2')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۴۶۴۱_ho3f.jpg" alt="کتونی 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 3')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۴۷۰۶_92zs.jpg" alt="کتونی 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 4')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۴۴۵۹_bhh0.jpg" alt="کتونی 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 5')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۴۵۲۱_qiw.jpg" alt="کتونی 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 6')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۳۸۱۳_w3c6.jpg" alt="کتونی 7" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 7')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files//files/img_۲۰۲۵۱۱۰۹_۲۳۴۴۰۸_nqmp.jpg" alt="کتونی 8" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 8')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۴۴۳۴_bnt8.jpg" alt="کتونی 9" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 9')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۳۶۲۶_kmpy.jpg" alt="کتونی 10" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 10')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۳۶۵۰_im1u.jpg" alt="کتونی 11" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 11')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۳۷۲۳_7a4d.jpg" alt="کتونی 12" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 12')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۳۷۴۸_6a00.jpg" alt="کتونی 13" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 13')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۳۳۵۰_29d0.jpg" alt="کتونی 14" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 14')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۳۴۴۴_eb5c.jpg" alt="کتونی 15" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 15')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۳۵۱۲_76at.jpg" alt="کتونی 16" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 16')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۳۵۴۸_iyv.jpg" alt="کتونی 17" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 17')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/inshot_20251109_201225840_f7up.jpg" alt="کتونی 18" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 18')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۲۸۱۱_0ya2.jpg" alt="کتونی 19" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 19')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۳۰۲۵_sge5.jpg" alt="کتونی 20" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 20')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۰۹_۲۳۳۲۱۷_20j4.jpg" alt="کتونی 21" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کتونی 21')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+   </div>
+  </div>
+  <div id="bags-detail" class="detail-page"><button class="back-btn" onclick="goBack()">→ بازگشت</button>
+   <h1 class="detail-header">کیف و کفش</h1>
+   <div class="detail-grid">
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۵۲۶_saur.jpg" alt="کیف و کفش 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 1')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۵۵۰_xhb.jpg" alt="کیف و کفش 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 2')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۶۱۳_ql4i.jpg" alt="کیف و کفش 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 3')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۶۳۳_ltvj.jpg" alt="کیف و کفش 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 4')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۴۱۰_0ji9.jpg" alt="کیف و کفش 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 5')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۴۲۸_f83y.jpg" alt="کیف و کفش 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 6')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۴۴۷_j3su.jpg" alt="کیف و کفش 7" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 7')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۵۰۹_w1pd.jpg" alt="کیف و کفش 8" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 8')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۲۳۶_qfad.jpg" alt="کیف و کفش 9" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 9')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۲۵۹_i8v9.jpg" alt="کیف و کفش 10" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 10')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۳۳۲_meos.jpg" alt="کیف و کفش 11" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 11')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۳۵۰_3mm.jpg" alt="کیف و کفش 12" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 12')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۰۱۷_z8v7.jpg" alt="کیف و کفش 13" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 13')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۱۲۶_d2sc.jpg" alt="کیف و کفش 14" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 14')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۱۴۴_pkcv.jpg" alt="کیف و کفش 15" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 15')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۰۲۱۵_68zh.jpg" alt="کیف و کفش 16" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('کیف و کفش 16')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+   </div>
+  </div>
+  <div id="accessories-detail" class="detail-page"><button class="back-btn" onclick="goBack()">→ بازگشت</button>
+   <h1 class="detail-header">اکسسوری</h1>
+   <div class="detail-grid">
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۶۱۷_v1m.jpg" alt="اکسسوری 1" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('اکسسوری 1')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۶۳۶_jvpp.jpg" alt="اکسسوری 2" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('اکسسوری 2')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۷۰۷_83n.jpg" alt="اکسسوری 3" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('اکسسوری 3')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۷۲۲_b8h7.jpg" alt="اکسسوری 4" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('اکسسوری 4')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۵۰۲_t2m.jpg" alt="اکسسوری 5" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('اکسسوری 5')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۵۱۵_huvu.jpg" alt="اکسسوری 6" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('اکسسوری 6')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۵۴۲_qesh.jpg" alt="اکسسوری 7" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('اکسسوری 7')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۵۵۷_0qla.jpg" alt="اکسسوری 8" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('اکسسوری 8')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۴۱۳_1tjr.jpg" alt="اکسسوری 9" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('اکسسوری 9')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۴۳۹_duxi.jpg" alt="اکسسوری 10" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('اکسسوری 10')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۳۲۴_qwa2.jpg" alt="اکسسوری 11" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('اکسسوری 11')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۳۳۷_p8bv.jpg" alt="اکسسوری 12" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('اکسسوری 12')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+    <div class="product-card-detail">
+     <div class="product-placeholder">
+      <img src="https://s6.uupload.ir/files/img_۲۰۲۵۱۱۱۲_۱۵۲۳۵۶_by5u.jpg" alt="اکسسوری 13" style="width: 100%; height: 100%; object-fit: cover; border-radius: 15px;" onerror="this.src=''; this.alt='تصویر بارگذاری نشد'; this.style.display='none';">
+     </div><button class="add-to-cart-btn" onclick="addToCart('اکسسوری 13')"><span class="cart-icon">🛒</span> افزودن به سبد</button>
+    </div>
+   </div>
+  </div><!-- About Section -->
+  <div class="footer-section" id="main-content">
+   <h2 class="footer-title" id="aboutTitle">درباره ما</h2>
+   <p class="footer-text" id="aboutText">Webplus یکی از برترین برندهای مد و پوشاک زنانه است که با ارائه جدیدترین و باکیفیت‌ترین محصولات، همواره در خدمت بانوان شیک‌پوش می‌باشد. ما با تکیه بر طراحی‌های منحصر به فرد و کیفیت بی‌نظیر، تجربه‌ای متفاوت از خرید را برای شما فراهم می‌کنیم.</p>
+  </div><!-- Contact Section -->
+  <div class="footer-section">
+   <h2 class="footer-title" id="contactTitle">تماس با ما</h2>
+  </div><!-- Brand Logo at Bottom -->
+  <div style="text-align: center; padding: 60px 20px; background: rgba(0, 0, 0, 0.9); margin: 40px 20px; border-radius: 20px; border: 2px solid rgba(139, 0, 0, 0.5);">
+   <div class="brand-logo" id="brandName" style="font-size: 56px; font-weight: 900; letter-spacing: 4px; background: linear-gradient(135deg, #000000 0%, #8B0000 50%, #000000 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-family: 'Impact', 'Arial Black', sans-serif;">
+    Webplus
+   </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      brand_name: 'Webplus',
+      tagline: 'مد و پوشاک زنانه',
+      discount_title: 'تخفیف‌های ویژه',
+      new_title: 'جدیدترین‌ها',
+      winter_title: 'لباس زمستانی',
+      jeans_title: 'شلوار جین',
+      cotton_title: 'کتونی',
+      bags_title: 'کیف و کفش',
+      accessories_title: 'اکسسوری',
+      about_title: 'درباره ما',
+      about_text: 'Webplus یکی از برترین برندهای مد و پوشاک زنانه است که با ارائه جدیدترین و باکیفیت‌ترین محصولات، همواره در خدمت بانوان شیک‌پوش می‌باشد. ما با تکیه بر طراحی‌های منحصر به فرد و کیفیت بی‌نظیر، تجربه‌ای متفاوت از خرید را برای شما فراهم می‌کنیم.',
+      contact_title: 'تماس با ما',
+      background_color: '#000000',
+      accent_color: '#8B0000',
+      text_color: '#ffffff',
+      button_color: '#DC143C',
+      font_family: 'Segoe UI',
+      font_size: 16
+    };
+
+    async function onConfigChange(config) {
+      const brandName = config.brand_name || defaultConfig.brand_name;
+      const tagline = config.tagline || defaultConfig.tagline;
+      const discountTitle = config.discount_title || defaultConfig.discount_title;
+      const newTitle = config.new_title || defaultConfig.new_title;
+      const winterTitle = config.winter_title || defaultConfig.winter_title;
+      const jeansTitle = config.jeans_title || defaultConfig.jeans_title;
+      const cottonTitle = config.cotton_title || defaultConfig.cotton_title;
+      const bagsTitle = config.bags_title || defaultConfig.bags_title;
+      const accessoriesTitle = config.accessories_title || defaultConfig.accessories_title;
+      const aboutTitle = config.about_title || defaultConfig.about_title;
+      const aboutText = config.about_text || defaultConfig.about_text;
+      const contactTitle = config.contact_title || defaultConfig.contact_title;
+      const fontFamily = config.font_family || defaultConfig.font_family;
+      const fontSize = config.font_size || defaultConfig.font_size;
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const buttonColor = config.button_color || defaultConfig.button_color;
+
+      const brandElements = document.querySelectorAll('#brandName');
+      brandElements.forEach(el => el.textContent = brandName);
+      
+      document.getElementById('tagline').textContent = tagline;
+      document.getElementById('discountTitle').textContent = discountTitle;
+      document.getElementById('newTitle').textContent = newTitle;
+      document.getElementById('winterTitle').textContent = winterTitle;
+      document.getElementById('jeansTitle').textContent = jeansTitle;
+      document.getElementById('cottonTitle').textContent = cottonTitle;
+      document.getElementById('bagsTitle').textContent = bagsTitle;
+      document.getElementById('accessoriesTitle').textContent = accessoriesTitle;
+      document.getElementById('aboutTitle').textContent = aboutTitle;
+      document.getElementById('aboutText').textContent = aboutText;
+      document.getElementById('contactTitle').textContent = contactTitle;
+
+      document.body.style.fontFamily = `${fontFamily}, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif`;
+      document.body.style.fontSize = `${fontSize}px`;
+      document.body.style.background = backgroundColor;
+      document.body.style.color = textColor;
+
+      const sectionTitles = document.querySelectorAll('.section-title');
+      sectionTitles.forEach(title => {
+        title.style.fontSize = `${fontSize * 1.75}px`;
+        title.style.color = textColor;
+      });
+
+      const footerTitles = document.querySelectorAll('.footer-title');
+      footerTitles.forEach(title => {
+        title.style.fontSize = `${fontSize * 2}px`;
+        title.style.color = textColor;
+      });
+
+      const detailHeaders = document.querySelectorAll('.detail-header');
+      detailHeaders.forEach(header => {
+        header.style.fontSize = `${fontSize * 2.25}px`;
+        header.style.color = textColor;
+      });
+
+      const moreButtons = document.querySelectorAll('.more-btn, .back-btn');
+      moreButtons.forEach(btn => {
+        btn.style.background = `linear-gradient(135deg, ${accentColor} 0%, ${buttonColor} 100%)`;
+        btn.style.fontSize = `${fontSize}px`;
+      });
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.accent_color || defaultConfig.accent_color,
+              set: (value) => {
+                config.accent_color = value;
+                window.elementSdk.setConfig({ accent_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => config.button_color || defaultConfig.button_color,
+              set: (value) => {
+                config.button_color = value;
+                window.elementSdk.setConfig({ button_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ['brand_name', config.brand_name || defaultConfig.brand_name],
+          ['tagline', config.tagline || defaultConfig.tagline],
+          ['discount_title', config.discount_title || defaultConfig.discount_title],
+          ['new_title', config.new_title || defaultConfig.new_title],
+          ['winter_title', config.winter_title || defaultConfig.winter_title],
+          ['jeans_title', config.jeans_title || defaultConfig.jeans_title],
+          ['cotton_title', config.cotton_title || defaultConfig.cotton_title],
+          ['bags_title', config.bags_title || defaultConfig.bags_title],
+          ['accessories_title', config.accessories_title || defaultConfig.accessories_title],
+          ['about_title', config.about_title || defaultConfig.about_title],
+          ['about_text', config.about_text || defaultConfig.about_text],
+          ['contact_title', config.contact_title || defaultConfig.contact_title]
+        ])
+      });
+    }
+
+    // Drag to scroll functionality
+    const sliders = document.querySelectorAll('.slider-wrapper');
+    
+    sliders.forEach(slider => {
+      let isDown = false;
+      let startX;
+      let scrollLeft;
+
+      slider.addEventListener('mousedown', (e) => {
+        isDown = true;
+        slider.classList.add('dragging');
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+      });
+
+      slider.addEventListener('mouseleave', () => {
+        isDown = false;
+        slider.classList.remove('dragging');
+      });
+
+      slider.addEventListener('mouseup', () => {
+        isDown = false;
+        slider.classList.remove('dragging');
+      });
+
+      slider.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
+      });
+
+      // Touch events
+      slider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+      });
+
+      slider.addEventListener('touchmove', (e) => {
+        const x = e.touches[0].pageX - slider.offsetLeft;
+        const walk = (x - startX) * 2;
+        slider.scrollLeft = scrollLeft - walk;
+      });
+    });
+
+    function scrollSlider(section, direction) {
+      const slider = document.getElementById(`${section}-slider`);
+      const scrollAmount = 300;
+      
+      if (direction === 'left') {
+        slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      } else {
+        slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      }
+    }
+
+    function showMore(section) {
+      document.getElementById('main-content').style.display = 'none';
+      document.querySelectorAll('.section-header, .slider-container, header, .footer-section').forEach(el => {
+        el.style.display = 'none';
+      });
+      
+      const detailPage = document.getElementById(`${section}-detail`);
+      if (detailPage) {
+        detailPage.classList.add('active');
+      }
+    }
+
+    function goBack() {
+      document.querySelectorAll('.detail-page').forEach(page => {
+        page.classList.remove('active');
+      });
+      
+      document.getElementById('main-content').style.display = 'block';
+      document.querySelectorAll('.section-header, .slider-container, header, .footer-section').forEach(el => {
+        el.style.display = '';
+      });
+      
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function addToCart(productName) {
+      // Create notification element if it doesn't exist
+      let notification = document.getElementById('cart-notification');
+      if (!notification) {
+        notification = document.createElement('div');
+        notification.id = 'cart-notification';
+        notification.className = 'cart-notification';
+        notification.innerHTML = `
+          <div class="cart-notification-icon">✓</div>
+          <div class="cart-notification-text">محصول به سبد خرید اضافه شد</div>
+        `;
+        document.body.appendChild(notification);
+      }
+
+      // Show notification
+      notification.classList.add('show');
+
+      // Hide notification after 2 seconds
+      setTimeout(() => {
+        notification.classList.remove('show');
+      }, 2000);
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a553a89f3d95bac',t:'MTc2NDI4NDI4OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
