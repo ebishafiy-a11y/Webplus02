@@ -3,10 +3,10 @@ backend:
   repo: Hoom4n-cpu/netlifycms
   branch: main
 
-media_folder: "images"
-public_folder: "/images"
+  "media_folder: "images
+  "public_folder: "/images
 
-locale: "fa"
+  "locale: "fa
 
 collections:
   - name: "pages"
@@ -17,5 +17,5 @@ collections:
         file: "content/home.json"
         fields:
           - {label: "عنوان", widget: "string", name: "title"}
-          - {label: "توضیحات", name: "description"}
-          - {label: "متن دکمه", name: "button_text", widget: "string"}
+          - {label: "توضیحات", widget: "text", name: "description"}
+          - {label: "متن دکمه", widget: "string", name: "button_text"}
