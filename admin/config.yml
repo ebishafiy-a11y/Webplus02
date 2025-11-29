@@ -1,1 +1,21 @@
+backend:
+  name: github
+  repo: Hoom4n-cpu/netlifycms
+  branch: main
 
+media_folder: "images"
+public_folder: "/images"
+
+locale: "fa"
+
+collections:
+  - name: "pages"
+    label: "صفحات"
+    files:
+      - label: "صفحه اصلی"
+        name: "home"
+        file: "content/home.json"
+        fields:
+          - {label: "عنوان", widget: "string", name: "title"}
+          - {label: "توضیحات", name: "description"}
+          - {label: "متن دکمه", name: "button_text", widget: "string"}
